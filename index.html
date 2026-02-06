@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="es">
 <head>
@@ -10,14 +11,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sacerdotisa Secreta | Lecturas + Rituales canalizados" />
   <meta property="og:description" content="Lecturas y rituales canalizados. Contenido íntimo y sagrado. Pedí tu guía personalizada." />
-  <!-- og:image sin “agregar imágenes” externas: 1x1 transparente -->
-  <meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=" />
+  <meta property="og:image" content="https://iili.io/fbUwXXn.png" />
   <meta property="og:locale" content="es_AR" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sacerdotisa Secreta | Lecturas + Rituales canalizados" />
   <meta name="twitter:description" content="Lecturas y rituales canalizados. Contenido íntimo y sagrado. Pedí tu guía personalizada." />
+  <meta name="twitter:image" content="https://iili.io/fbUwXXn.png" />
 
   <style>
     :root{
@@ -47,6 +48,30 @@
         radial-gradient(700px 500px at 40% 90%, rgba(242,198,106,.12), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
+    }
+
+    /* Overlay completo SIN recorte */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background-image:url("https://iili.io/fbUIil4.md.jpg");
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:contain; /* clave: no recorta */
+      opacity:.70;            /* visible sin oscurecer de más */
+      pointer-events:none;
+    }
+
+    /* Capa suave para legibilidad (no muy oscura) */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:rgba(7,5,11,.35);
+      pointer-events:none;
     }
 
     .noise{
@@ -199,6 +224,18 @@
       justify-content:space-between;
       gap:18px;
     }
+
+    /* HERO LOGO */
+    .heroLogo{
+      width:min(420px, 82vw);
+      height:auto;
+      display:block;
+      margin: 2px auto 10px;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,.55));
+      user-select:none;
+      pointer-events:none;
+    }
+
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -479,6 +516,7 @@
         <div class="card reveal">
           <div class="heroMain">
             <div>
+              <img class="heroLogo" src="https://iili.io/fbUwXXn.png" alt="Sacerdotisa Secreta" loading="eager" />
               <div class="kicker"><span class="dot"></span> contenido íntimo y sagrado</div>
               <h2 class="title">Guía personalizada para tu momento.</h2>
               <p class="subtitle">
@@ -494,7 +532,6 @@
               </div>
 
               <div class="heroActions">
-                <!-- Reemplazá links si querés -->
                 <a class="btn primary" href="#contacto">Escribime ahora</a>
                 <a class="btn" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Instagram</a>
                 <a class="btn" target="_blank" rel="noopener" href="https://t.me/">Telegram</a>
@@ -702,7 +739,7 @@
     }, { threshold: 0.12 });
     els.forEach(el => io.observe(el));
 
-    // Smooth scroll (simple)
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (ev) => {
         const id = a.getAttribute("href");
@@ -716,3 +753,4 @@
   </script>
 </body>
 </html>
+```

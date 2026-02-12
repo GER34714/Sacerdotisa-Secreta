@@ -40,7 +40,6 @@
       overflow-x:hidden;
     }
 
-    /* Overlay completo SIN recorte */
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
@@ -51,7 +50,6 @@
       opacity:.70;
       pointer-events:none;
     }
-    /* Capa suave para legibilidad */
     body::after{
       content:"";
       position:fixed; inset:0; z-index:-1;
@@ -75,7 +73,7 @@
       border-bottom:1px solid rgba(255,255,255,.08);
     }
     .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
-    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+    .brand{display:flex; align-items:center; gap:12px; min-width:0; flex:1}
     .brandLogo{
       width:44px; height:44px; object-fit:contain;
       border-radius:14px;
@@ -85,6 +83,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
       flex:0 0 auto;
     }
+    .brandText{min-width:0; flex:1}
     .brand h1{
       margin:0; font-size:14px; letter-spacing:.16em; text-transform:uppercase;
       color:rgba(242,236,255,.9);
@@ -102,7 +101,7 @@
     }
     nav a:hover{background:rgba(255,255,255,.06); color:rgba(242,236,255,.95)}
 
-    .cta{display:flex; align-items:center; gap:10px;}
+    .cta{display:flex; align-items:center; gap:10px; flex:0 0 auto;}
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -128,6 +127,7 @@
       display:none; width:44px; height:44px; border-radius:14px;
       border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06);
       align-items:center; justify-content:center; cursor:pointer;
+      flex:0 0 auto;
     }
     .burger svg{opacity:.9}
     .mobilePanel{display:none; padding: 0 0 14px;}
@@ -191,7 +191,7 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
       position:relative;
       overflow:hidden;
-      min-height: 300px;
+      min-height: 240px;
       display:flex; flex-direction:column; gap:10px;
     }
     .post:after{
@@ -206,7 +206,6 @@
     .post p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
     .post .actions{margin-top:auto; position:relative; display:flex; gap:10px; flex-wrap:wrap;}
 
-    /* Imagen en tamaño original dentro de la tarjeta (SIN recorte) */
     .postImg{
       width:100%;
       border-radius: 16px;
@@ -223,17 +222,9 @@
     .postImg img{
       width:100%;
       height:auto;
-      max-height: 240px;
+      max-height: 220px;
       object-fit: contain;
       display:block;
-    }
-
-    .miniLine{
-      margin-top: 6px;
-      color: rgba(242,236,255,.78);
-      font-size: 12.5px;
-      line-height: 1.55;
-      position:relative;
     }
 
     .ctaBlock{
@@ -293,8 +284,25 @@
       .burger{display:flex}
       .mobilePanel{display:block}
       .grid3{grid-template-columns: 1fr}
-      .postImg img{max-height: 280px}
+      .postImg img{max-height: 260px}
     }
+
+    /* MOBILE: que se lea el nombre entero + sacar boton Escribime */
+    @media (max-width: 520px){
+      .brand h1{
+        font-size:13px;
+        letter-spacing:.12em;
+        white-space:normal;
+        overflow:visible;
+        text-overflow:clip;
+        line-height:1.1;
+      }
+      .brand p{display:none}
+      .brandText{padding-right:6px}
+      .cta a.btn{display:none}
+      .burger{display:flex}
+    }
+
     @media (max-width: 420px){
       .btn{width:100%}
       .ctaBlock .actions{width:100%}
@@ -312,7 +320,7 @@
       <div class="topbar">
         <div class="brand">
           <img class="brandLogo" src="https://iili.io/fbUwXXn.png" alt="Sacerdotisa Secreta" loading="eager" />
-          <div style="min-width:0">
+          <div class="brandText">
             <h1>Sacerdotisa Secreta</h1>
             <p>Lecturas + Rituales + Guías PDF</p>
           </div>
@@ -364,35 +372,28 @@
       </div>
 
       <div class="grid3">
-        <!-- LECTURAS -> usa imagen de GUIAS (q9bnMPt) -->
         <article class="post">
           <div class="postImg">
             <img src="https://iili.io/q9bnMPt.png" alt="Lecturas" loading="lazy" />
           </div>
           <h3>🔮 Lecturas</h3>
           <p>Tarot Gitano, Rider, Lenormand, Egipcio, Evolutivo, Kármico y Baraja Española 🔮✅</p>
-          <p class="miniLine">Lectura personalizada para tu situación. Te ayuda a ordenar el panorama, ver qué está influyendo y cuál es el mejor paso a seguir.</p>
-          <p class="miniLine">Podés pedirla general o por un tema puntual. Consultá por Telegram y te digo cuál te conviene.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
           </div>
         </article>
-<!-- PART 2/3 -->
-        <!-- RITUALES -> usa imagen que estaba en LECTURAS (q9bnEoN) -->
+
         <article class="post">
           <div class="postImg">
             <img src="https://iili.io/q9bnEoN.png" alt="Rituales" loading="lazy" />
           </div>
           <h3>🕯️ Rituales</h3>
           <p>Amor, abundancia, dinero, magnetismo personal, sanación y cortes.</p>
-          <p class="miniLine">Rituales guiados según tu caso. Te indico qué hacer y cómo hacerlo paso a paso, con foco en tu objetivo y tu momento.</p>
-          <p class="miniLine">Se define la opción ideal después de leerte. Consultá por Telegram y te digo cuál te conviene.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
           </div>
         </article>
 
-        <!-- PDF -> usa imagen que estaba en RITUALES (q9bnWKX) -->
         <article class="post">
           <div class="postImg">
             <img src="https://iili.io/q9bnWKX.png" alt="Guías en PDF" loading="lazy" />
@@ -406,14 +407,12 @@
             <li>Guía Mesa Cuántica</li>
             <li>Guía Lenguaje de las Velas</li>
           </ul>
-          <p class="miniLine">Si querés, te paso el listado completo y te recomiendo la guía ideal según tu objetivo.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Pedir guías por Telegram</a>
           </div>
         </article>
       </div>
-    </section>
-
+    </section><!-- PART 2/3 -->
     <section id="contacto" class="reveal">
       <div class="card">
         <div class="ctaBlock">
@@ -483,7 +482,6 @@
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
-  </script>
+  </script><!-- PART 3/3 -->
 </body>
 </html>
-

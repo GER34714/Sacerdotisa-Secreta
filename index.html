@@ -380,13 +380,18 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.25);
       position:relative;
     }
+
+    /* CAMBIO: ahora las imagenes se ven ENTERAS (sin recorte) */
     .guideMedia img{
       width:100%;
-      height: 220px;
-      object-fit: cover;
+      height: 240px;
+      object-fit: contain;
+      object-position: center;
       display:block;
-      transform: scale(1.01);
+      background: rgba(0,0,0,.22);
+      padding: 10px;
     }
+
     .guideMeta{
       display:flex;
       flex-direction:column;
@@ -478,13 +483,14 @@
       .hero{padding-top: 40px}
       .heroMain{min-height:auto}
       .heroSide{min-height:auto}
-      .guideMedia img{height: 240px}
+      .guideMedia img{height: 260px}
     }
     @media (max-width: 420px){
       .btn{width:100%}
       .heroActions{flex-direction:column}
       .ctaBlock .actions{width:100%}
       .ctaBlock .actions .btn{width:100%}
+      .guideMedia img{height: 240px}
     }
   </style>
 </head>
@@ -731,7 +737,7 @@
 
         <div class="panel guideCard">
           <div class="guideMedia">
-            <img src="https://iili.io/q9a3Lwx.webp" alt="Guía PDF" loading="lazy" />
+            <img src="https://iili.io/q9a3Lwx.webp" alt="Guía PDF: Protección diaria" loading="lazy" />
           </div>
           <div class="guideMeta">
             <h3>Protección diaria</h3>
@@ -752,7 +758,7 @@
 
         <div class="panel guideCard">
           <div class="guideMedia">
-            <img src="https://iili.io/q9afyc7.webp" alt="Guía PDF" loading="lazy" />
+            <img src="https://iili.io/q9afyc7.webp" alt="Guía PDF: Limpieza y enfoque" loading="lazy" />
           </div>
           <div class="guideMeta">
             <h3>Limpieza y enfoque</h3>
@@ -783,7 +789,7 @@
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
               <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c(.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
               </svg>
               Hablar por Telegram
             </a>
@@ -817,10 +823,8 @@
   <div class="toast" id="toast">Mensaje copiado</div>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
     const burger = document.getElementById("burger");
     const mobilePanel = document.getElementById("mobilePanel");
     burger?.addEventListener("click", () => {
@@ -829,7 +833,6 @@
       burger.setAttribute("aria-expanded", String(!open));
     });
 
-    // Close mobile menu when clicking a link
     mobilePanel?.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         mobilePanel.style.display = "none";
@@ -837,7 +840,6 @@
       });
     });
 
-    // Reveal on scroll
     const els = Array.from(document.querySelectorAll(".reveal"));
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -846,7 +848,6 @@
     }, { threshold: 0.12 });
     els.forEach(el => io.observe(el));
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (ev) => {
         const id = a.getAttribute("href");
@@ -858,7 +859,6 @@
       });
     });
 
-    // Copy message buttons
     const toast = document.getElementById("toast");
     let toastT = null;
 

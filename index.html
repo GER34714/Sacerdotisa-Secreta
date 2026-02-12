@@ -1,3 +1,364 @@
+<!-- PART 1/2 -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sacerdotisa Secreta | Lecturas + Rituales + Guías</title>
+  <meta name="description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sacerdotisa Secreta | Lecturas + Rituales + Guías" />
+  <meta property="og:description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+  <meta property="og:image" content="https://iili.io/fbUwXXn.png" />
+  <meta property="og:locale" content="es_AR" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sacerdotisa Secreta | Lecturas + Rituales + Guías" />
+  <meta name="twitter:description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+  <meta name="twitter:image" content="https://iili.io/fbUwXXn.png" />
+
+  <style>
+    :root{
+      --bg0:#07050b; --bg1:#0e0a14;
+      --text:#f2ecff; --muted: rgba(242,236,255,.74);
+      --gold:#f2c66a; --violet:#b56cff; --rose:#ff5aa5;
+      --shadow: 0 24px 80px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(181,108,255,.18), transparent 55%),
+        radial-gradient(900px 520px at 80% 20%, rgba(255,90,165,.14), transparent 55%),
+        radial-gradient(700px 500px at 40% 90%, rgba(242,198,106,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* Overlay completo SIN recorte */
+    body::before{
+      content:"";
+      position:fixed; inset:0; z-index:-2;
+      background-image:url("https://iili.io/fbUIil4.md.jpg");
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:contain;
+      opacity:.70;
+      pointer-events:none;
+    }
+    /* Capa suave para legibilidad */
+    body::after{
+      content:"";
+      position:fixed; inset:0; z-index:-1;
+      background:rgba(7,5,11,.35);
+      pointer-events:none;
+    }
+
+    .noise{
+      position:fixed; inset:0; pointer-events:none; opacity:.10; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      background-size:260px 260px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(1120px, 92vw); margin:0 auto}
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,5,11,.78), rgba(7,5,11,.38));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+    .brandLogo{
+      width:44px; height:44px; object-fit:contain;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      padding:6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .brand h1{
+      margin:0; font-size:14px; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(242,236,255,.9);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:2px 0 0; font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    nav{display:flex; align-items:center; gap:18px;}
+    nav a{
+      font-size:13px; color:rgba(242,236,255,.78);
+      padding:10px 10px; border-radius:12px; transition:.18s ease;
+    }
+    nav a:hover{background:rgba(255,255,255,.06); color:rgba(242,236,255,.95)}
+
+    .cta{display:flex; align-items:center; gap:10px;}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(242,236,255,.92);
+      font-size:13px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.085); border-color:rgba(242,198,106,.30)}
+    .btn.primary{
+      background:
+        radial-gradient(circle at 30% 20%, rgba(242,198,106,.20), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(181,108,255,.18), transparent 55%),
+        rgba(255,255,255,.06);
+      border-color: rgba(242,198,106,.34);
+    }
+
+    .burger{
+      display:none; width:44px; height:44px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06);
+      align-items:center; justify-content:center; cursor:pointer;
+    }
+    .burger svg{opacity:.9}
+    .mobilePanel{display:none; padding: 0 0 14px;}
+    .mobilePanel .row{display:flex; flex-direction:column; gap:8px; padding-top:8px;}
+    .mobilePanel a{width:100%; justify-content:flex-start}
+
+    .hero{padding: 52px 0 12px;}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.045));
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(520px 220px at 30% 10%, rgba(242,198,106,.18), transparent 60%),
+        radial-gradient(520px 260px at 85% 0%, rgba(181,108,255,.18), transparent 60%),
+        radial-gradient(520px 260px at 70% 110%, rgba(255,90,165,.13), transparent 60%);
+      pointer-events:none; opacity:.9;
+    }
+
+    .heroInner{padding: 26px 22px; display:flex; flex-direction:column; gap:16px;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px; border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      width:fit-content; color: rgba(242,236,255,.82);
+      font-size:12px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(242,198,106,1), rgba(181,108,255,.9));
+      box-shadow: 0 0 20px rgba(181,108,255,.25);
+    }
+    .title{margin:0; font-size: clamp(28px, 5vw, 44px); line-height:1.06;}
+    .subtitle{margin:0; color:var(--muted); font-size:15px; line-height:1.55; max-width:70ch;}
+
+    section{padding: 18px 0}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin: 10px 0 12px;
+    }
+    .sectionHead h2{
+      margin:0; font-size:18px; letter-spacing:.12em; text-transform:uppercase;
+      color: rgba(242,236,255,.9);
+    }
+    .sectionHead .hint{margin:0; font-size:13px; color:var(--muted);}
+
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+
+    .post{
+      padding: 18px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.045));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+      min-height: 190px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .post:after{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(320px 160px at 20% 0%, rgba(242,198,106,.12), transparent 60%),
+        radial-gradient(320px 160px at 90% 10%, rgba(181,108,255,.10), transparent 60%);
+      pointer-events:none; opacity:.8;
+    }
+    .post h3{margin:0; font-size:16px; color: rgba(242,236,255,.92); position:relative;}
+    .post p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
+    .post .actions{margin-top:auto; position:relative; display:flex; gap:10px; flex-wrap:wrap;}
+
+    .ctaBlock{
+      padding: 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      flex-wrap:wrap;
+    }
+    .ctaBlock h3{margin:0; font-size:16px}
+    .ctaBlock p{margin:6px 0 0; color:var(--muted); font-size:13px; max-width:70ch}
+    .ctaBlock .actions{display:flex; gap:10px; flex-wrap:wrap}
+
+    footer{
+      padding: 28px 0 42px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 18px;
+      color: rgba(242,236,255,.76);
+      font-size: 12px;
+    }
+    footer .foot{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center;}
+    footer a{color: rgba(242,198,106,.92)}
+    footer a:hover{text-decoration:underline}
+
+    /* Floating Telegram (principal) */
+    .tgFloat{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      width:56px; height:56px; border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.12), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(181,108,255,.16), transparent 55%),
+        rgba(255,255,255,.06);
+      box-shadow: 0 22px 70px rgba(0,0,0,.55);
+      display:flex; align-items:center; justify-content:center;
+      backdrop-filter: blur(12px);
+      transition: transform .16s ease, filter .16s ease;
+    }
+    .tgFloat:hover{transform: translateY(-2px); filter: brightness(1.06)}
+    .tgFloat svg{opacity:.95}
+    .tgNote{
+      position:fixed; right:82px; bottom:24px; z-index:60;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      color: rgba(242,236,255,.86);
+      font-size: 12px;
+      max-width: 240px;
+      box-shadow: 0 22px 70px rgba(0,0,0,.35);
+      display:none;
+    }
+    .tgWrap:hover + .tgNote{display:block}
+
+    .reveal{opacity:0; transform: translateY(14px); transition: .6s cubic-bezier(.2,.8,.2,1)}
+    .reveal.on{opacity:1; transform:none}
+
+    @media (max-width: 940px){
+      nav{display:none}
+      .burger{display:flex}
+      .mobilePanel{display:block}
+      .grid3{grid-template-columns: 1fr}
+    }
+    @media (max-width: 420px){
+      .btn{width:100%}
+      .ctaBlock .actions{width:100%}
+      .ctaBlock .actions .btn{width:100%}
+      .tgNote{display:none !important}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <img class="brandLogo" src="https://iili.io/fbUwXXn.png" alt="Sacerdotisa Secreta" loading="eager" />
+          <div style="min-width:0">
+            <h1>Sacerdotisa Secreta</h1>
+            <p>Lecturas + Rituales canalizados</p>
+          </div>
+        </div>
+
+        <nav aria-label="Secciones">
+          <a href="#principal">Servicios</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="cta">
+          <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <a class="btn primary" href="#contacto">Escribime</a>
+        </div>
+      </div>
+
+      <div class="mobilePanel" id="mobilePanel" style="display:none">
+        <div class="row">
+          <a class="btn" href="#principal">Servicios</a>
+          <a class="btn" href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card reveal">
+        <div class="heroInner">
+          <div class="kicker"><span class="dot"></span> contenido íntimo y sagrado</div>
+          <h2 class="title">Lecturas, Rituales y Guías PDF.</h2>
+          <p class="subtitle">Escribime para tu guía personalizada. Principal línea de comunicación: Telegram.</p>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Telegram</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="principal" class="reveal">
+      <div class="sectionHead">
+        <h2>Servicios</h2>
+        <p class="hint">Tres posts principales</p>
+      </div>
+
+      <div class="grid3">
+        <article class="post">
+          <h3>🔮 Lecturas</h3>
+          <p>Tarot Gitano, Rider, Lenormand, Lenormand Rider, Egipcio, Evolutivo, Kármico y Baraja Española 🔮✅</p>
+          <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
+          </div>
+        </article>
+
+        <article class="post">
+          <h3>🕯️ Rituales</h3>
+          <p>Catálogo con rituales o tipos de rituales, según tu caso. Se ordena por temática y necesidad.</p>
+          <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
+          </div>
+        </article>
+
+        <article class="post">
+          <h3>📄 Guías PDF</h3>
+          <p>Tres guías principales en PDF. Material claro y práctico para acompañarte en tu proceso.</p>
+          <div class="actions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
+          </div>
+        </article>
+      </div>
+    </section>
 <!-- PART 2/2 -->
     <section id="contacto" class="reveal">
       <div class="card">

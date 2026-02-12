@@ -49,7 +49,6 @@
       overflow-x:hidden;
     }
 
-    /* Overlay completo SIN recorte */
     body::before{
       content:"";
       position:fixed;
@@ -63,7 +62,6 @@
       pointer-events:none;
     }
 
-    /* Capa suave para legibilidad */
     body::after{
       content:"";
       position:fixed;
@@ -82,7 +80,6 @@
     a{color:inherit; text-decoration:none}
     .wrap{width:min(1120px, 92vw); margin:0 auto}
 
-    /* Topbar */
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
@@ -92,12 +89,13 @@
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
+      gap:10px;
     }
     .brand{
       display:flex; align-items:center; gap:12px; min-width:0;
+      flex: 1 1 auto;
     }
 
-    /* LOGO EN HEADER (único logo) */
     .brandLogo{
       width:44px; height:44px;
       object-fit:contain;
@@ -139,6 +137,7 @@
     nav a:hover{background:rgba(255,255,255,.06); color:rgba(242,236,255,.95)}
     .cta{
       display:flex; align-items:center; gap:10px;
+      flex: 0 0 auto;
     }
 
     .btn{
@@ -162,10 +161,8 @@
         rgba(255,255,255,.06);
       border-color: rgba(242,198,106,.34);
     }
-
     .btn .tgIcon{opacity:.95}
 
-    /* Mobile menu */
     .burger{
       display:none;
       width:44px; height:44px;
@@ -186,7 +183,6 @@
     }
     .mobilePanel a{width:100%; justify-content:flex-start}
 
-    /* Hero */
     .hero{
       padding: 56px 0 22px;
       position:relative;
@@ -271,7 +267,6 @@
       margin-top: 18px;
     }
 
-    /* Side card */
     .heroSide{
       padding: 22px;
       display:flex;
@@ -309,7 +304,6 @@
     .item b{display:block; font-size:13px; color:rgba(242,236,255,.9); margin-bottom:2px}
     .item span{display:block; font-size:12px; color:var(--muted); line-height:1.4}
 
-    /* Sections */
     section{padding: 18px 0}
     .grid3{
       display:grid;
@@ -365,7 +359,6 @@
       color: var(--muted);
     }
 
-    /* Guides cards */
     .guideCard{
       padding: 14px;
       display:flex;
@@ -380,8 +373,6 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.25);
       position:relative;
     }
-
-    /* CAMBIO: ahora las imagenes se ven ENTERAS (sin recorte) */
     .guideMedia img{
       width:100%;
       height: 240px;
@@ -391,17 +382,11 @@
       background: rgba(0,0,0,.22);
       padding: 10px;
     }
-
-    .guideMeta{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
+    .guideMeta{display:flex; flex-direction:column; gap:6px}
     .guideMeta h3{margin:0; font-size:16px; color:rgba(242,236,255,.92)}
     .guideMeta p{margin:0; font-size:13px; color:var(--muted); line-height:1.6}
     .guideActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 2px}
 
-    /* CTA block */
     .ctaBlock{
       padding: 18px;
       display:flex; align-items:center; justify-content:space-between; gap:14px;
@@ -411,7 +396,6 @@
     .ctaBlock p{margin:6px 0 0; color:var(--muted); font-size:13px; max-width: 70ch}
     .ctaBlock .actions{display:flex; gap:10px; flex-wrap:wrap}
 
-    /* Footer */
     footer{
       padding: 28px 0 42px;
       border-top: 1px solid rgba(255,255,255,.08);
@@ -425,7 +409,6 @@
     footer a{color: rgba(242,198,106,.92)}
     footer a:hover{text-decoration:underline}
 
-    /* Floating Telegram */
     .tgFloat{
       position:fixed;
       right: 16px;
@@ -446,7 +429,6 @@
     .tgFloat:hover{transform: translateY(-2px); filter: brightness(1.06)}
     .tgFloat svg{opacity:.95}
 
-    /* Toast */
     .toast{
       position:fixed;
       left:50%;
@@ -467,7 +449,6 @@
     }
     .toast.on{opacity:1; transform: translateX(-50%) translateY(-2px)}
 
-    /* Reveal animation */
     .reveal{opacity:0; transform: translateY(14px); transition: .6s cubic-bezier(.2,.8,.2,1)}
     .reveal.on{opacity:1; transform:none}
 
@@ -475,22 +456,53 @@
     @media (max-width: 940px){
       .heroGrid{grid-template-columns: 1fr}
       nav{display:none}
-      .burger{display:flex}
-      .mobilePanel{display:block}
+      .burger{display:none}
+      .mobilePanel{display:none !important}
     }
     @media (max-width: 780px){
       .grid3{grid-template-columns: 1fr}
       .hero{padding-top: 40px}
       .heroMain{min-height:auto}
       .heroSide{min-height:auto}
-      .guideMedia img{height: 260px}
+
+      /* Nombre bien legible en mobile */
+      .topbar{padding:12px 0}
+      .brand h1{
+        font-size:13px;
+        letter-spacing:.10em;
+        white-space:normal;
+        overflow:visible;
+        text-overflow:clip;
+        line-height:1.15;
+      }
+      .brand p{
+        white-space:normal;
+        overflow:visible;
+        text-overflow:clip;
+        line-height:1.2;
+      }
+
+      /* Imagenes un poco mas grandes en mobile */
+      .guideMedia img{
+        height: 300px;
+        padding: 8px;
+      }
     }
     @media (max-width: 420px){
       .btn{width:100%}
       .heroActions{flex-direction:column}
       .ctaBlock .actions{width:100%}
       .ctaBlock .actions .btn{width:100%}
-      .guideMedia img{height: 240px}
+
+      .brand h1{
+        font-size:13px;
+        letter-spacing:.08em;
+      }
+
+      .guideMedia img{
+        height: 320px;
+        padding: 6px;
+      }
     }
   </style>
 </head>
@@ -526,7 +538,6 @@
         </div>
       </div>
 
-      <!-- Mobile menu -->
       <div class="mobilePanel" id="mobilePanel" style="display:none">
         <div class="row">
           <a class="btn" href="#servicios">Servicios</a>
@@ -789,7 +800,7 @@
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
               <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c(.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
               </svg>
               Hablar por Telegram
             </a>
@@ -813,7 +824,6 @@
     </footer>
   </main>
 
-  <!-- Floating Telegram -->
   <a class="tgFloat" href="https://t.me/Isharassecreta" target="_blank" rel="noopener" aria-label="Telegram">
     <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
       <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>

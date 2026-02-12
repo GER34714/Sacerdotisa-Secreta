@@ -191,7 +191,7 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
       position:relative;
       overflow:hidden;
-      min-height: 240px;
+      min-height: 300px;
       display:flex; flex-direction:column; gap:10px;
     }
     .post:after{
@@ -223,9 +223,17 @@
     .postImg img{
       width:100%;
       height:auto;
-      max-height: 220px;
+      max-height: 240px;
       object-fit: contain;
       display:block;
+    }
+
+    .miniLine{
+      margin-top: 6px;
+      color: rgba(242,236,255,.78);
+      font-size: 12.5px;
+      line-height: 1.55;
+      position:relative;
     }
 
     .ctaBlock{
@@ -285,7 +293,7 @@
       .burger{display:flex}
       .mobilePanel{display:block}
       .grid3{grid-template-columns: 1fr}
-      .postImg img{max-height: 260px}
+      .postImg img{max-height: 280px}
     }
     @media (max-width: 420px){
       .btn{width:100%}
@@ -363,11 +371,13 @@
           </div>
           <h3>🔮 Lecturas</h3>
           <p>Tarot Gitano, Rider, Lenormand, Egipcio, Evolutivo, Kármico y Baraja Española 🔮✅</p>
+          <p class="miniLine">Lectura personalizada para tu situación. Te ayuda a ordenar el panorama, ver qué está influyendo y cuál es el mejor paso a seguir.</p>
+          <p class="miniLine">Podés pedirla general o por un tema puntual. Consultá por Telegram y te digo cuál te conviene.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
           </div>
         </article>
-
+<!-- PART 2/3 -->
         <!-- RITUALES -> usa imagen que estaba en LECTURAS (q9bnEoN) -->
         <article class="post">
           <div class="postImg">
@@ -375,6 +385,8 @@
           </div>
           <h3>🕯️ Rituales</h3>
           <p>Amor, abundancia, dinero, magnetismo personal, sanación y cortes.</p>
+          <p class="miniLine">Rituales guiados según tu caso. Te indico qué hacer y cómo hacerlo paso a paso, con foco en tu objetivo y tu momento.</p>
+          <p class="miniLine">Se define la opción ideal después de leerte. Consultá por Telegram y te digo cuál te conviene.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
           </div>
@@ -394,12 +406,14 @@
             <li>Guía Mesa Cuántica</li>
             <li>Guía Lenguaje de las Velas</li>
           </ul>
+          <p class="miniLine">Si querés, te paso el listado completo y te recomiendo la guía ideal según tu objetivo.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Pedir guías por Telegram</a>
           </div>
         </article>
       </div>
-    </section><!-- PART 2/3 -->
+    </section>
+
     <section id="contacto" class="reveal">
       <div class="card">
         <div class="ctaBlock">
@@ -470,7 +484,6 @@
       });
     });
   </script>
-<!-- PART 3/3 -->
 </body>
 </html>
 

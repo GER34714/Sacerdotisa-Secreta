@@ -170,7 +170,6 @@
     .title{margin:0; font-size: clamp(28px, 5vw, 44px); line-height:1.06;}
     .subtitle{margin:0; color:var(--muted); font-size:15px; line-height:1.55; max-width:70ch;}
 
-    /* 3 "POSTS" PRINCIPALES */
     section{padding: 18px 0}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
@@ -184,6 +183,7 @@
 
     .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
 
+    /* 3 POSTS PRINCIPALES (sin inventar rituales) */
     .post{
       padding: 18px;
       border-radius: var(--radius);
@@ -207,8 +207,8 @@
     .post p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
     .post .actions{margin-top:auto; position:relative; display:flex; gap:10px; flex-wrap:wrap;}
 
-    /* DETALLE (catalogo despues) */
-    .panel{
+    /* Bloque final (pedido: ponerlo al final) */
+    .finalNote{
       padding: 18px;
       border-radius: var(--radius);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.045));
@@ -217,7 +217,7 @@
       position:relative;
       overflow:hidden;
     }
-    .panel:after{
+    .finalNote:after{
       content:"";
       position:absolute; inset:-2px;
       background:
@@ -225,8 +225,8 @@
         radial-gradient(320px 160px at 90% 10%, rgba(181,108,255,.10), transparent 60%);
       pointer-events:none; opacity:.8;
     }
-    .panel h3{margin:0 0 8px; font-size:16px; color: rgba(242,236,255,.92); position:relative;}
-    .panel p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
+    .finalNote h3{margin:0 0 8px; font-size:16px; color: rgba(242,236,255,.92); position:relative;}
+    .finalNote p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
 
     .ctaBlock{
       padding: 18px;
@@ -311,8 +311,7 @@
         </div>
 
         <nav aria-label="Secciones">
-          <a href="#posts">Principal</a>
-          <a href="#detalle">Detalle</a>
+          <a href="#principal">Principal</a>
           <a href="#contacto">Contacto</a>
         </nav>
 
@@ -328,8 +327,7 @@
 
       <div class="mobilePanel" id="mobilePanel" style="display:none">
         <div class="row">
-          <a class="btn" href="#posts">Principal</a>
-          <a class="btn" href="#detalle">Detalle</a>
+          <a class="btn" href="#principal">Principal</a>
           <a class="btn" href="#contacto">Contacto</a>
         </div>
       </div>
@@ -352,7 +350,7 @@
       </div>
     </section>
 
-    <section id="posts" class="reveal">
+    <section id="principal" class="reveal">
       <div class="sectionHead">
         <h2>Principal</h2>
         <p class="hint">Tres posts principales</p>
@@ -361,54 +359,27 @@
       <div class="grid3">
         <article class="post">
           <h3>🔮 Lecturas</h3>
-          <p>Trabajo con: Tarot Gitano, Rider, Lenormand, Egipcio y Baraja Española. (Sumo Evolutivo y Kármico según el caso.)</p>
+          <p>Tarot Gitano, Rider, Lenormand, Lenormand Rider, Egipcio, Evolutivo, Kármico y Baraja Española 🔮✅</p>
           <div class="actions">
-            <a class="btn primary" href="#lecturas">Ver detalle</a>
-            <a class="btn" href="#contacto">Consultar</a>
+            <a class="btn primary" href="#contacto">Consultar</a>
           </div>
         </article>
 
         <article class="post">
           <h3>🕯️ Rituales</h3>
-          <p>Catálogo por tipos de rituales (según tu necesidad). Lo dejamos armado para que elijas y te guíe paso a paso.</p>
+          <p>Catálogo con rituales o tipos de rituales. Te guío según tu caso y lo dejamos ordenado para elegir.</p>
           <div class="actions">
-            <a class="btn primary" href="#rituales">Ver detalle</a>
-            <a class="btn" href="#contacto">Consultar</a>
+            <a class="btn primary" href="#contacto">Consultar</a>
           </div>
         </article>
 
         <article class="post">
           <h3>📄 Guías PDF</h3>
-          <p>Tres guías principales en PDF. Material práctico para sostener el proceso, con indicaciones claras.</p>
+          <p>Tres guías principales en PDF. Material claro y práctico para acompañarte en tu proceso.</p>
           <div class="actions">
-            <a class="btn primary" href="#guias">Ver detalle</a>
-            <a class="btn" href="#contacto">Consultar</a>
+            <a class="btn primary" href="#contacto">Consultar</a>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section id="detalle" class="reveal">
-      <div class="sectionHead">
-        <h2>Detalle</h2>
-        <p class="hint">Más completo (debajo de los 3 posts)</p>
-      </div>
-
-      <div class="grid3">
-        <div id="lecturas" class="panel">
-          <h3>🔮 Lecturas (detalle)</h3>
-          <p>Tarot Gitano, Rider, Lenormand, Egipcio y Baraja Española. De última, se deja así y luego se amplía según lo que necesites.</p>
-        </div>
-
-        <div id="rituales" class="panel">
-          <h3>🕯️ Rituales (detalle)</h3>
-          <p>Catálogo por tipos de rituales. No se listan categorías inventadas: se arma con tus tipos reales y lo dejamos ordenado.</p>
-        </div>
-
-        <div id="guias" class="panel">
-          <h3>📄 Guías PDF (detalle)</h3>
-          <p>Tres guías principales en PDF (títulos a definir). Se pueden ajustar los nombres cuando me pases cuáles son.</p>
-        </div>
       </div>
     </section>
 <!-- PART 2/2 -->
@@ -417,13 +388,20 @@
         <div class="ctaBlock">
           <div>
             <h3>Escribime para tu guía personalizada</h3>
-            <p>Contame tu situación en pocas líneas y te indico si conviene una lectura, un ritual, una guía PDF o un pack.</p>
+            <p>Contame en pocas líneas qué está pasando y te indico qué opción conviene para vos.</p>
           </div>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Hablar por Instagram</a>
             <a class="btn" target="_blank" rel="noopener" href="https://t.me/">Ir a Telegram</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="finalNote">
+        <h3>Para cerrar</h3>
+        <p>Si querés, después armamos el catálogo completo con rituales o tipos de rituales, y también packs o acompañamiento, y lo dejamos ordenado.</p>
       </div>
     </section>
 

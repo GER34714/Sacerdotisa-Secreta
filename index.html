@@ -1,21 +1,21 @@
-<!-- PART 1/2 -->
+<!-- PART 1/3 -->
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sacerdotisa Secreta | Lecturas + Rituales + Guías</title>
-  <meta name="description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+  <meta name="description" content="Lecturas, rituales y guías en PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada por Telegram." />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sacerdotisa Secreta | Lecturas + Rituales + Guías" />
-  <meta property="og:description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+  <meta property="og:description" content="Lecturas, rituales y guías en PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada por Telegram." />
   <meta property="og:image" content="https://iili.io/fbUwXXn.png" />
   <meta property="og:locale" content="es_AR" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sacerdotisa Secreta | Lecturas + Rituales + Guías" />
-  <meta name="twitter:description" content="Lecturas, rituales y guías PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada." />
+  <meta name="twitter:description" content="Lecturas, rituales y guías en PDF. Contenido íntimo y sagrado. Escribime para tu guía personalizada por Telegram." />
   <meta name="twitter:image" content="https://iili.io/fbUwXXn.png" />
 
   <style>
@@ -40,6 +40,7 @@
       overflow-x:hidden;
     }
 
+    /* Overlay completo SIN recorte */
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
@@ -50,6 +51,7 @@
       opacity:.70;
       pointer-events:none;
     }
+    /* Capa suave para legibilidad */
     body::after{
       content:"";
       position:fixed; inset:0; z-index:-1;
@@ -189,7 +191,7 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
       position:relative;
       overflow:hidden;
-      min-height: 190px;
+      min-height: 210px;
       display:flex; flex-direction:column; gap:10px;
     }
     .post:after{
@@ -203,6 +205,24 @@
     .post h3{margin:0; font-size:16px; color: rgba(242,236,255,.92); position:relative;}
     .post p{margin:0; font-size:13px; color:var(--muted); line-height:1.6; position:relative;}
     .post .actions{margin-top:auto; position:relative; display:flex; gap:10px; flex-wrap:wrap;}
+
+    .postImg{
+      width:100%;
+      height:150px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      overflow:hidden;
+      position:relative;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .postImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.02);
+    }
 
     .ctaBlock{
       padding: 18px;
@@ -261,6 +281,7 @@
       .burger{display:flex}
       .mobilePanel{display:block}
       .grid3{grid-template-columns: 1fr}
+      .postImg{height:180px}
     }
     @media (max-width: 420px){
       .btn{width:100%}
@@ -281,12 +302,12 @@
           <img class="brandLogo" src="https://iili.io/fbUwXXn.png" alt="Sacerdotisa Secreta" loading="eager" />
           <div style="min-width:0">
             <h1>Sacerdotisa Secreta</h1>
-            <p>Lecturas + Rituales canalizados</p>
+            <p>Lecturas + Rituales + Guías PDF</p>
           </div>
         </div>
 
         <nav aria-label="Secciones">
-          <a href="#principal">Servicios</a>
+          <a href="#servicios">Servicios</a>
           <a href="#contacto">Contacto</a>
         </nav>
 
@@ -302,7 +323,7 @@
 
       <div class="mobilePanel" id="mobilePanel" style="display:none">
         <div class="row">
-          <a class="btn" href="#principal">Servicios</a>
+          <a class="btn" href="#servicios">Servicios</a>
           <a class="btn" href="#contacto">Contacto</a>
         </div>
       </div>
@@ -314,8 +335,8 @@
       <div class="card reveal">
         <div class="heroInner">
           <div class="kicker"><span class="dot"></span> contenido íntimo y sagrado</div>
-          <h2 class="title">Lecturas, Rituales y Guías PDF.</h2>
-          <p class="subtitle">Escribime para tu guía personalizada. Principal línea de comunicación: Telegram.</p>
+          <h2 class="title">Guía personalizada para tu momento.</h2>
+          <p class="subtitle">Lecturas, rituales y guías en PDF. Principal línea de comunicación: Telegram.</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Telegram</a>
             <a class="btn" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Instagram</a>
@@ -324,14 +345,17 @@
       </div>
     </section>
 
-    <section id="principal" class="reveal">
+    <section id="servicios" class="reveal">
       <div class="sectionHead">
         <h2>Servicios</h2>
-        <p class="hint">Tres posts principales</p>
+        <p class="hint">Lecturas, Rituales y Guías en PDF</p>
       </div>
 
       <div class="grid3">
         <article class="post">
+          <div class="postImg">
+            <img src="https://iili.io/q9bnEoN.png" alt="Lecturas" loading="lazy" />
+          </div>
           <h3>🔮 Lecturas</h3>
           <p>Tarot Gitano, Rider, Lenormand, Egipcio, Evolutivo, Kármico y Baraja Española 🔮✅</p>
           <div class="actions">
@@ -340,29 +364,41 @@
         </article>
 
         <article class="post">
+          <div class="postImg">
+            <img src="https://iili.io/q9bnWKX.png" alt="Rituales" loading="lazy" />
+          </div>
           <h3>🕯️ Rituales</h3>
-          <p>Rituales y tipos de rituales, según tu caso. Te guío para elegir el indicado.</p>
+          <p>Amor, abundancia, dinero, magnetismo personal, sanación y cortes.</p>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
           </div>
         </article>
 
         <article class="post">
-          <h3>📄 Guías PDF</h3>
-          <p>Guías en PDF. Material claro y práctico para acompañarte en tu proceso.</p>
+          <div class="postImg">
+            <img src="https://iili.io/q9bnMPt.png" alt="Guías en PDF" loading="lazy" />
+          </div>
+          <h3>📄 Guías en PDF</h3>
+          <p>Encontrá estas guías y muchas más:</p>
+          <ul style="margin:0; padding-left:18px; color:rgba(242,236,255,.74); position:relative; line-height:1.55; font-size:13px">
+            <li>Guía Tarot Rider y Tarot Egipcio</li>
+            <li>Guía Completa de Radiestesia</li>
+            <li>Guía Péndulo</li>
+            <li>Guía Mesa Cuántica</li>
+            <li>Guía Lenguaje de las Velas</li>
+          </ul>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Consultar por Telegram</a>
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Pedir guías por Telegram</a>
           </div>
         </article>
       </div>
-    </section>
-<!-- PART 2/2 -->
+    </section><!-- PART 2/3 -->
     <section id="contacto" class="reveal">
       <div class="card">
         <div class="ctaBlock">
           <div>
             <h3>Escribime para tu guía personalizada</h3>
-            <p>Contame en pocas líneas qué está pasando y te indico qué opción conviene para vos.</p>
+            <p>Contame en pocas líneas qué estás buscando y te indico qué opción conviene (lectura, ritual o guía en PDF).</p>
           </div>
           <div class="actions">
             <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/USUARIO_TELEGRAM">Hablar por Telegram</a>
@@ -426,6 +462,6 @@
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
-  </script>
+  </script><!-- PART 3/3 -->
 </body>
 </html>

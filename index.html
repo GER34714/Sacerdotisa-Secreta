@@ -152,6 +152,7 @@
       box-shadow: 0 10px 26px rgba(0,0,0,.25);
       transition: transform .16s ease, background .16s ease, border-color .16s ease;
       user-select:none;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.085); border-color:rgba(242,198,106,.30)}
     .btn.primary{
@@ -161,6 +162,8 @@
         rgba(255,255,255,.06);
       border-color: rgba(242,198,106,.34);
     }
+
+    .btn .tgIcon{opacity:.95}
 
     /* Mobile menu */
     .burger{
@@ -362,6 +365,37 @@
       color: var(--muted);
     }
 
+    /* Guides cards */
+    .guideCard{
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .guideMedia{
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+      position:relative;
+    }
+    .guideMedia img{
+      width:100%;
+      height: 220px;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.01);
+    }
+    .guideMeta{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .guideMeta h3{margin:0; font-size:16px; color:rgba(242,236,255,.92)}
+    .guideMeta p{margin:0; font-size:13px; color:var(--muted); line-height:1.6}
+    .guideActions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 2px}
+
     /* CTA block */
     .ctaBlock{
       padding: 18px;
@@ -386,8 +420,8 @@
     footer a{color: rgba(242,198,106,.92)}
     footer a:hover{text-decoration:underline}
 
-    /* Floating WhatsApp */
-    .waFloat{
+    /* Floating Telegram */
+    .tgFloat{
       position:fixed;
       right: 16px;
       bottom: 16px;
@@ -404,25 +438,29 @@
       backdrop-filter: blur(12px);
       transition: transform .16s ease, filter .16s ease;
     }
-    .waFloat:hover{transform: translateY(-2px); filter: brightness(1.06)}
-    .waFloat svg{opacity:.95}
-    .waNote{
+    .tgFloat:hover{transform: translateY(-2px); filter: brightness(1.06)}
+    .tgFloat svg{opacity:.95}
+
+    /* Toast */
+    .toast{
       position:fixed;
-      right: 82px;
-      bottom: 24px;
-      z-index: 60;
+      left:50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 80;
       padding: 10px 12px;
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.35);
+      background: rgba(0,0,0,.45);
       backdrop-filter: blur(10px);
-      color: rgba(242,236,255,.86);
+      color: rgba(242,236,255,.88);
       font-size: 12px;
-      max-width: 220px;
       box-shadow: 0 22px 70px rgba(0,0,0,.35);
-      display:none;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
     }
-    .waWrap:hover + .waNote{display:block}
+    .toast.on{opacity:1; transform: translateX(-50%) translateY(-2px)}
 
     /* Reveal animation */
     .reveal{opacity:0; transform: translateY(14px); transition: .6s cubic-bezier(.2,.8,.2,1)}
@@ -440,13 +478,13 @@
       .hero{padding-top: 40px}
       .heroMain{min-height:auto}
       .heroSide{min-height:auto}
+      .guideMedia img{height: 240px}
     }
     @media (max-width: 420px){
       .btn{width:100%}
       .heroActions{flex-direction:column}
       .ctaBlock .actions{width:100%}
       .ctaBlock .actions .btn{width:100%}
-      .waNote{display:none !important}
     }
   </style>
 </head>
@@ -515,9 +553,18 @@
               </div>
 
               <div class="heroActions">
-                <a class="btn primary" href="#contacto">Escribime ahora</a>
+                <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
+                  <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+                  </svg>
+                  Hablar por Telegram
+                </a>
+
+                <button class="btn jsCopy" type="button" data-message="Hola, quiero pedir una guía personalizada. Te cuento mi situación en pocas líneas y me decís qué opción me conviene.">
+                  Copiar mensaje
+                </button>
+
                 <a class="btn" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Instagram</a>
-                <a class="btn" target="_blank" rel="noopener" href="https://t.me/">Telegram</a>
               </div>
             </div>
 
@@ -640,14 +687,48 @@
       </div>
 
       <div class="grid3">
-        <div class="panel">
-          <h3>El lenguaje de las velas</h3>
-          <p>Colores, intención, tiempos y señales. Para usar velas con sentido y foco.</p>
+        <div class="panel guideCard">
+          <div class="guideMedia">
+            <img src="https://iili.io/q9YrwF9.png" alt="Guía PDF: El lenguaje de las velas" loading="lazy" />
+          </div>
+          <div class="guideMeta">
+            <h3>El lenguaje de las velas</h3>
+            <p>Colores, intención, tiempos y señales. Para usar velas con sentido, foco y lectura clara de lo que se mueve.</p>
+          </div>
+          <div class="guideActions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
+              <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+              </svg>
+              Pedir por Telegram
+            </a>
+            <button class="btn jsCopy" type="button" data-message="Hola, quiero la guía PDF El lenguaje de las velas. Me interesa trabajar intención, tiempos y señales. Me decís cómo seguimos?">
+              Copiar mensaje
+            </button>
+          </div>
         </div>
-        <div class="panel">
-          <h3>Protección diaria</h3>
-          <p>Rutina corta para limpiar carga y sostener límites energéticos.</p>
+
+        <div class="panel guideCard">
+          <div class="guideMedia">
+            <img src="https://iili.io/q9Yreyb.png" alt="Guía/Pack: Puente a la nueva vida" loading="lazy" />
+          </div>
+          <div class="guideMeta">
+            <h3>Pack “Puente a la nueva vida”</h3>
+            <p>Para momentos de cambio: cerrar ciclo, ordenar energía y avanzar con un plan claro, sin volver al mismo lugar.</p>
+          </div>
+          <div class="guideActions">
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
+              <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+              </svg>
+              Pedir por Telegram
+            </a>
+            <button class="btn jsCopy" type="button" data-message="Hola, quiero el pack Puente a la nueva vida. Estoy en un momento de cambio y quiero guía para ordenar y avanzar. Me decís qué opción me conviene?">
+              Copiar mensaje
+            </button>
+          </div>
         </div>
+
         <div class="panel">
           <h3>Ritual de cierre</h3>
           <p>Para cortar ciclos, soltar lazos y recuperar energía sin drama.</p>
@@ -660,11 +741,19 @@
         <div class="ctaBlock">
           <div>
             <h3>Escribime y te digo qué te conviene pedir</h3>
-            <p>Podés arrancar por Instagram o Telegram. Si querés WhatsApp, reemplazá el número en el botón flotante.</p>
+            <p>Contacto directo por Telegram. Si querés, copiás el mensaje y lo pegás en el chat.</p>
           </div>
           <div class="actions">
-            <a class="btn primary" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Hablar por Instagram</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://t.me/">Ir a Telegram</a>
+            <a class="btn primary" target="_blank" rel="noopener" href="https://t.me/Isharassecreta">
+              <svg class="tgIcon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+              </svg>
+              Hablar por Telegram
+            </a>
+            <button class="btn jsCopy" type="button" data-message="Hola, quiero pedir una guía personalizada. Mi tema es: (contame en 2 o 3 líneas) y te leo.">
+              Copiar mensaje
+            </button>
+            <a class="btn" target="_blank" rel="noopener" href="https://instagram.com/sacerdotisa_secretaof">Instagram</a>
           </div>
         </div>
       </div>
@@ -681,16 +770,14 @@
     </footer>
   </main>
 
-  <!-- Floating WhatsApp (reemplazá el número por el real) -->
-  <div class="waWrap">
-    <a class="waFloat" href="https://wa.me/XXXXXXXXXXX?text=Hola%20Sacerdotisa%20Secreta%2C%20quiero%20pedir%20una%20gu%C3%ADa%20personalizada." target="_blank" rel="noopener" aria-label="WhatsApp">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2a9.5 9.5 0 0 0-8.2 14.3L3 22l5.9-1.5A9.5 9.5 0 1 0 12 2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
-        <path d="M9.3 8.6c-.4.8-.2 1.7.4 2.6.7 1.1 2 2.4 3.4 3.1.8.4 1.6.5 2.2.1.2-.1.5-.6.6-.9.1-.2 0-.4-.2-.5l-1.2-.7c-.2-.1-.5-.1-.6.1l-.4.5c-.1.1-.2.2-.4.1-.5-.2-1-.6-1.4-1-.4-.4-.8-.9-1-1.4-.1-.2 0-.3.1-.4l.4-.4c.2-.2.2-.4.1-.6l-.5-1.2c-.1-.2-.3-.3-.5-.2-.3.1-.8.3-.9.6z" fill="currentColor" opacity=".9"/>
-      </svg>
-    </a>
-  </div>
-  <div class="waNote">Reemplazá “XXXXXXXXXXX” por el número real 💬</div>
+  <!-- Floating Telegram -->
+  <a class="tgFloat" href="https://t.me/Isharassecreta" target="_blank" rel="noopener" aria-label="Telegram">
+    <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M21.9 4.6c.2.1.4.4.4.7 0 .1 0 .2-.1.3l-3.1 14.7c-.1.5-.6.8-1.1.7-.1 0-.3-.1-.4-.2l-4.6-3.4-2.3 2.2c-.2.2-.4.3-.7.3-.1 0-.2 0-.3-.1-.3-.1-.5-.4-.5-.7v-3.4l8.5-7.7c.2-.2.2-.5 0-.6-.2-.2-.5-.2-.7 0l-10.3 6.5-4.4-1.4c-.3-.1-.5-.3-.6-.6 0-.3.2-.6.4-.7l18.6-7.2c.2-.1.5-.1.7 0z"/>
+    </svg>
+  </a>
+
+  <div class="toast" id="toast">Mensaje copiado</div>
 
   <script>
     // Year
@@ -731,6 +818,44 @@
         if (!target) return;
         ev.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // Copy message buttons
+    const toast = document.getElementById("toast");
+    let toastT = null;
+
+    function showToast(txt){
+      if(!toast) return;
+      toast.textContent = txt || "Mensaje copiado";
+      toast.classList.add("on");
+      if (toastT) clearTimeout(toastT);
+      toastT = setTimeout(() => toast.classList.remove("on"), 1400);
+    }
+
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast("Mensaje copiado");
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly","");
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        try{ document.execCommand("copy"); showToast("Mensaje copiado"); }
+        catch(err){ showToast("No se pudo copiar"); }
+        document.body.removeChild(ta);
+      }
+    }
+
+    document.querySelectorAll(".jsCopy").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const msg = btn.getAttribute("data-message") || "";
+        if(!msg.trim()) return;
+        copyText(msg.trim());
       });
     });
   </script>
